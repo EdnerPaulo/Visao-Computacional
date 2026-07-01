@@ -1,0 +1,17 @@
+[2026-07-01 20:33:26,437] CRITICAL [database.connection:22] - Falha ao inicializar o motor do banco de dados: no pq wrapper available.
+Attempts made:
+- couldn't import psycopg 'c' implementation: No module named 'psycopg_c'
+- couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'
+- couldn't import psycopg 'python' implementation: libpq library not found
+[2026-07-01 20:44:05,008] ERROR [repositories.analise_repository:26] - Erro ao salvar análise no banco: (psycopg.errors.ConnectionTimeout) connection timeout expired
+Multiple connection attempts failed. All failures were:
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.143.47.40': connection timeout expired
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.23.186.13': connection timeout expired
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.131.64.200': connection timeout expired
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-07-01 20:44:05,012] ERROR [controllers.app_controller:53] - Erro no fluxo do controlador central: (psycopg.errors.ConnectionTimeout) connection timeout expired
+Multiple connection attempts failed. All failures were:
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.143.47.40': connection timeout expired
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.23.186.13': connection timeout expired
+- host: 'ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech', port: None, hostaddr: '3.131.64.200': connection timeout expired
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
