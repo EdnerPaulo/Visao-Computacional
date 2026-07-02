@@ -7,7 +7,10 @@ import os
 class Settings:
     # URL padrão para instância gratuita do Neon.tech (PostgreSQL)
     # Substitua pelos dados da sua própria instância string gerada no painel do Neon
-    DATABASE_URL: str = "postgresql+psycopg://neondb_owner:npg_X1abcDEfG2hi@ep-cool-flower-a5v8abc.us-east-2.aws.neon.tech/neondb?sslmode=require"
+   DATABASE_URL: str = os.getenv(
+        "DATABASE_URL", 
+        "postgresql+psycopg://neondb_owner:npg_hyE6J1Pfkbjl@ep-hidden-mode-ato01bgo-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    )
     
     # Pastas do sistema
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
