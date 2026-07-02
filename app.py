@@ -48,14 +48,23 @@ if menu == "Câmera e Captura":
     st.header("📸 Captura de Imagem em Tempo Real")
     st.write("Abaixo, utilize o componente de hardware nativo para capturar fotos para processamento.")
     
-    # Componente nativo de câmera do Streamlit
-    img_file = st.camera_input("Alinhe o alvo na câmera")
+    # Criamos 3 colunas para estreitar e centralizar a tela da câmera
+    col_esquerda, col_central, col_direita = st.columns([1.5, 2, 1.5])
+    
+    with col_central:
+        # O componente nativo de câmera agora respeita o tamanho da coluna do meio
+        img_file = st.camera_input("Alinhe o alvo na câmera")
     
     if img_file is not None:
         bytes_data = img_file.getvalue()
         
+        st.markdown("---")
         st.subheader("🖼️ Imagem Capturada")
-        st.image(bytes_data, width=450)
+        
+        # Centraliza e controla também o tamanho da foto após ser tirada
+        col_img_esq, col_img_cen, col_img_dir = st.columns([1.5, 2, 1.5])
+        with col_img_cen:
+            st.image(bytes_data, use_container_width=True)
         
         with st.spinner("Executando pipelines de visão computacional..."):
             registro_salvo = controller.processar_e_salvar(bytes_data)
