@@ -36,4 +36,5 @@ def render_dashboard(analises: List[AnaliseModel]) -> None:
     with col5:
         st.markdown("**Qualidade de Foco (Nitidez)**")
         nit_counts = df["Nitidez"].value_counts()
-        st.pie_chart(nit_counts)
+        # Alterado de st.pie_chart para st.bar_chart para usar o componente nativo do Streamlit
+        st.bar_chart(nit_counts)
